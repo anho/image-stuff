@@ -1,0 +1,35 @@
+{
+  "name": "@anho/image-stuff",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf coverage build tmp",
+    "build": "tsc -p tsconfig.json",
+    "lint": "tslint -t stylish '{src,spec,features}/**/*.{ts,tsx}'",
+    "pretest": "npm run lint",
+    "test:unit": "JASMINE_CONFIG_PATH=jasmine.json jasmine",
+    "test:acceptance": "ts-node -T -r 'reflect-metadata' ./node_modules/.bin/cucumber-js --require 'features/**/*.ts' --exit",
+    "test": "npm run test:unit && npm run test:acceptance",
+    "dist": "npm run build && yarn install --production --modules-folder ./build/node_modules"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.65",
+    "@types/md5": "^2.1.32",
+    "@types/node": "^12.12.6",
+    "@types/sharp": "^0.23.0",
+    "copy": "^0.3.0",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.6.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "aigle": "^1.8.1",
+    "aws-sdk": "^2.100.0",
+    "axios": "^0.19.0",
+    "ix": "^2.5.3",
+    "lodash": "^4.17.4",
+    "md5": "^2.2.1",
+    "sharp": "^0.23.2"
+  }
+}
